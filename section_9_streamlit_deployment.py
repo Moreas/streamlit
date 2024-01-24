@@ -3,10 +3,9 @@ import os
 from pinecone import Pinecone
 from openai import OpenAI
 
-os.environ["OPENAI_API_KEY"] = "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"
 client = OpenAI()
 
-pc = Pinecone(api_key="3d6258e6-22f4-4bd8-afbb-c2649fe0a7e2")
+pc = Pinecone(api_key=os.environ["PINECONE_API_KEY"])
 index = pc.Index("movies")
 
 def generate_blog(topic, additional_text):
